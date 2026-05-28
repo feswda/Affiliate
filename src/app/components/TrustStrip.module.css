@@ -1,0 +1,26 @@
+.trustStrip {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.stripContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 1rem;
+}

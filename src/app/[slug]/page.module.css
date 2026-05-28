@@ -1,0 +1,227 @@
+.eventPage {
+  background: var(--color-background);
+  min-height: 100vh;
+}
+
+.eventHeader {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.eventMeta {
+  display: flex;
+  gap: var(--spacing-lg);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-md);
+  font-weight: 500;
+}
+
+.mainLayout {
+  padding-bottom: var(--spacing-3xl);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebar {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  position: sticky;
+  top: 90px;
+}
+
+.filterGroup {
+  margin-bottom: var(--spacing-xl);
+}
+
+.filterGroup:last-child {
+  margin-bottom: 0;
+}
+
+.filterGroup h3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.select {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  cursor: pointer;
+}
+
+.toggleInput {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-primary);
+}
+
+/* Main Content area */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.venueMapWrapper {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.mapPlaceholder {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: #e5e5e5;
+}
+
+.listingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sortSelect {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  font-family: inherit;
+}
+
+.listingsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.listingCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  align-items: center;
+  gap: var(--spacing-lg);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.listingCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.listingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.sectionRow {
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+}
+
+.listingFeatures {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.featureBadge {
+  background: #E8F4FD;
+  color: var(--color-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.partnerBadge {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.dealBadge {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+}
+
+.listingPriceArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-sm);
+}
+
+.priceValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.pricePer {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.buyBtn {
+  background: var(--color-primary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.buyBtn:hover {
+  background: var(--color-primary-hover);
+}
+
+@media (max-width: 600px) {
+  .listingCard {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  .listingPriceArea {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: var(--spacing-sm);
+  }
+}
