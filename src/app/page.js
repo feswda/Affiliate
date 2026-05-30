@@ -7,21 +7,25 @@ import { getPayload } from 'payload';
 import configPromise from '@payload-config';
 
 export default async function Home() {
-  const payload = await getPayload({ config: configPromise });
   let events = [];
   
   try {
-    const eventsResult = await payload.find({
-      collection: 'events',
-      depth: 1,
-      limit: 10,
-      where: {
-        status: {
-          equals: 'published',
+    if (process.env.DATABASE_URI || process.env.DATABASE_URL) {
+      const payload = await getPayload({ config: configPromise });
+      const eventsResult = await payload.find({
+        collection: 'events',
+        depth: 1,
+        limit: 10,
+        where: {
+          status: {
+            equals: 'published',
+          },
         },
-      },
-    });
-    events = eventsResult.docs;
+      });
+      events = eventsResult.docs;
+    } else {
+      console.warn('Skipping Payload CMS fetch because DATABASE_URI and DATABASE_URL are not set.');
+    }
   } catch (err) {
     console.error('Error fetching events from Payload:', err);
   }
