@@ -1,4 +1,5 @@
 import configPromise from '@payload-config'
+// @ts-expect-error - Next.js handles CSS imports
 import '@payloadcms/next/css'
 import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
