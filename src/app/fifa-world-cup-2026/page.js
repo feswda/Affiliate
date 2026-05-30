@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { tournaments } from '../lib/mockData';
+import { tournaments, wcMatches } from '../lib/mockData';
 import styles from './page.module.css';
 
 export default function TournamentHub() {
@@ -64,6 +64,30 @@ export default function TournamentHub() {
             </div>
           </section>
           
+          {/* Match Schedule List */}
+          <section className={styles.section}>
+            <h2 className="text-h2">Match Schedule</h2>
+            <div className={styles.matchList}>
+              {wcMatches.slice(0, 10).map(match => (
+                <Link href={`/${match.slug}`} key={match.id} className={styles.matchRow}>
+                  <div className={styles.matchDate}>
+                    {new Date(match.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </div>
+                  <div className={styles.matchTeams}>
+                    <strong>{match.name}</strong>
+                    <span className={styles.matchVenue}>{match.venue}, {match.city}</span>
+                  </div>
+                  <div className={styles.matchAction}>
+                    <button className={styles.btnOutline}>Tickets Soon</button>
+                  </div>
+                </Link>
+              ))}
+              <div className={styles.matchRow} style={{justifyContent: 'center', cursor: 'default'}}>
+                <span className="text-muted">... and 94 more matches</span>
+              </div>
+            </div>
+          </section>
+
           {/* Placeholder Knockout Bracket */}
           <section className={styles.section}>
              <h2 className="text-h2">Knockout Bracket</h2>

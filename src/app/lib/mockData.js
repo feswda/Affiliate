@@ -1,3 +1,31 @@
+export const wcMatches = Array.from({ length: 104 }).map((_, i) => {
+  const matchNum = i + 1;
+  const isFinal = matchNum === 104;
+  const isOpening = matchNum === 1;
+  const dateStr = isOpening ? "2026-06-11T12:00:00Z" : isFinal ? "2026-07-19T15:00:00Z" : `2026-06-${(11 + Math.floor(i / 3)).toString().padStart(2, '0')}T15:00:00Z`;
+  
+  return {
+    id: `evt_wc_${matchNum}`,
+    name: isFinal ? "FIFA World Cup 2026™ Final" : isOpening ? "Opening Match: Mexico vs TBA" : `Match ${matchNum}: TBA vs TBA`,
+    date: dateStr,
+    venue: isFinal ? "MetLife Stadium" : isOpening ? "Estadio Azteca" : "Host Stadium",
+    city: isFinal ? "New York / New Jersey, USA" : isOpening ? "Mexico City, Mexico" : "TBA",
+    minPrice: null, // No listings yet
+    currency: "USD",
+    vertical: "football",
+    slug: `fifa-world-cup-2026-match-${matchNum}-tickets`,
+    image: "https://images.unsplash.com/photo-1518605368461-1e1e114092b7?auto=format&fit=crop&q=80&w=800",
+    tournament_id: "tour_wc26",
+    stage_id: isFinal ? "stage_final" : matchNum <= 72 ? "stage_group" : "stage_knockout",
+    event_status: "Scheduled",
+    tba_status: true,
+    editorial: "The FIFA World Cup 2026™ is the pinnacle of international football. While teams are yet to be determined, anticipation is already reaching fever pitch.",
+    faqs: [
+      { q: "When do tickets go on sale?", a: "The Last-Minute Sales Phase will open closer to the tournament. Sign up for alerts." }
+    ]
+  };
+});
+
 export const trendingEvents = [
   {
     id: "evt_1",
@@ -16,27 +44,6 @@ export const trendingEvents = [
     faqs: [
       { q: "When is Real Madrid vs Barcelona?", a: "The match is scheduled for October 15, 2026 at 20:00 CET." },
       { q: "Where is the match played?", a: "At the Santiago Bernabéu stadium in Madrid." }
-    ]
-  },
-  {
-    id: "evt_wc_final",
-    name: "FIFA World Cup 2026™ Final",
-    date: "2026-07-19T15:00:00Z",
-    venue: "MetLife Stadium",
-    city: "New York / New Jersey, USA",
-    minPrice: null, // No listings yet
-    currency: "USD",
-    vertical: "football",
-    slug: "fifa-world-cup-2026-final-tickets",
-    image: "https://images.unsplash.com/photo-1518605368461-1e1e114092b7?auto=format&fit=crop&q=80&w=800",
-    tournament_id: "tour_wc26",
-    stage_id: "stage_final",
-    event_status: "Scheduled",
-    tba_status: true, // Teams not announced yet
-    editorial: "The FIFA World Cup 2026™ Final is the pinnacle of international football. Hosted at the iconic MetLife Stadium in New Jersey, this match will crown the world champions in front of a global audience of billions. While teams are yet to be determined, anticipation is already reaching fever pitch.",
-    faqs: [
-      { q: "When do World Cup 2026 Final tickets go on sale?", a: "The Last-Minute Sales Phase will open closer to the tournament. Sign up for alerts to be notified immediately when secondary market tickets appear." },
-      { q: "Which teams will play in the Final?", a: "The finalists will be determined after the semi-finals on July 14 and 15, 2026." }
     ]
   },
   {

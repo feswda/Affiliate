@@ -3,7 +3,8 @@
 }
 
 .hero {
-  background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+  background: linear-gradient(135deg, rgba(31, 64, 55, 0.8) 0%, rgba(153, 242, 200, 0.8) 100%), url('https://images.unsplash.com/photo-1518605368461-1e1e114092b7?auto=format&fit=crop&q=80&w=1600') no-repeat center center;
+  background-size: cover;
   color: #112211;
   padding: var(--spacing-3xl) 0;
   text-align: center;
@@ -205,4 +206,73 @@
 
 .quickLinks a:hover {
   text-decoration: underline;
+}
+
+/* Match Schedule Styles */
+.matchList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.matchRow {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.matchRow:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.matchDate {
+  flex: 0 0 100px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.matchTeams {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.matchTeams strong {
+  font-size: 1rem;
+}
+
+.matchVenue {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.matchAction {
+  flex: 0 0 auto;
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnOutline:hover {
+  background: var(--color-primary);
+  color: #fff;
 }
