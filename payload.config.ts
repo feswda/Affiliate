@@ -1,5 +1,4 @@
 import { buildConfig } from 'payload';
-import { sqliteAdapter } from '@payloadcms/db-sqlite';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import path from 'path';
@@ -11,6 +10,9 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     user: 'users',
+    importMap: {
+      baseDir: path.resolve(dirname),
+    },
   },
   collections: [
     {
@@ -188,17 +190,11 @@ export default buildConfig({
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'YOUR_SECRET_HERE',
-  db: process.env.DATABASE_URI && process.env.DATABASE_URI.startsWith('postgres')
-    ? postgresAdapter({
-        pool: {
-          connectionString: process.env.DATABASE_URI,
-        },
-      })
-    : sqliteAdapter({
-        client: {
-          url: process.env.DATABASE_URI || 'file:./payload.db',
-        },
-      }),
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI || '',
+    },
+  }),
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
