@@ -23,6 +23,27 @@ export default function Home() {
 
       <TrustStrip />
 
+      <section className={`container ${styles.trending}`}>
+        <div className={styles.sectionHeader}>
+          <h2 className="text-h2">Top Tournaments</h2>
+          <Link href="/football-soccer-tickets" className={styles.viewAll}>View all tournaments &rarr;</Link>
+        </div>
+        <div className={styles.eventGrid}>
+          <Link href="/fifa-world-cup-2026" className={styles.eventCard}>
+            <div className={styles.eventImage} style={{backgroundImage: `url(https://images.unsplash.com/photo-1518605368461-1e1e114092b7?auto=format&fit=crop&q=80&w=800)`}} />
+            <div className={styles.eventContent}>
+              <div className={styles.eventDate}>11 Jun - 19 Jul 2026</div>
+              <h3 className={styles.eventName}>FIFA World Cup 2026™</h3>
+              <p className={styles.eventVenue}>USA, Canada, Mexico</p>
+              <div className={styles.eventFooter}>
+                <span className={styles.priceLabel}>104 Matches</span>
+                <span className={styles.eventPrice} style={{fontSize: '1rem'}}>Tickets soon</span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       <section className={`container ${styles.verticals}`}>
         <h2 className="text-h2">Browse by Category</h2>
         <div className={styles.verticalGrid}>

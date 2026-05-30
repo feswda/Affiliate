@@ -5,26 +5,51 @@ import styles from './page.module.css';
 export default function EventClient({ event, listings, venue }) {
   const [allInPricing, setAllInPricing] = useState(false);
   const [quantity, setQuantity] = useState(2);
+  const [emailAlert, setEmailAlert] = useState('');
   
-  // Fake calculation for all-in pricing (base + 25% fees)
+  if (event.tba_status || !event.minPrice) {
+    return (
+      <div className={styles.tbaState}>
+        <div className={styles.tbaIcon}>⏳</div>
+        <h2 className="text-h2">Tickets on sale soon</h2>
+        <p className="text-body">
+          Listings are not yet available for this event because the exact teams or details are still to be confirmed.
+        </p>
+        <form className={styles.alertForm} onSubmit={(e) => e.preventDefault()}>
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            value={emailAlert}
+            onChange={(e) => setEmailAlert(e.target.value)}
+            className={styles.alertInput}
+            required
+          />
+          <button type="submit" className={styles.alertBtn}>Set Alert</button>
+        </form>
+        <p className="text-small" style={{marginTop: '1rem'}}>
+          We'll notify you the moment secondary market tickets drop.
+        </p>
+      </div>
+    );
+  }
+
   const calculatePrice = (basePrice) => {
     return allInPricing ? Math.round(basePrice * 1.25) : basePrice;
   };
 
   const getDealScoreColor = (score) => {
     switch(score) {
-      case 'Great Deal': return '#0C9E45'; // success
+      case 'Great Deal': return '#0C9E45';
       case 'Good': return '#8BC34A'; 
-      case 'Fair': return '#FFB020'; // warning
+      case 'Fair': return '#FFB020';
       case 'High': return '#FF4F00';
-      case 'Overpriced': return '#D82C20'; // danger
+      case 'Overpriced': return '#D82C20';
       default: return '#8792A2';
     }
   };
 
   return (
     <div className={styles.dashboard}>
-      {/* Sidebar Filters */}
       <aside className={styles.sidebar}>
         <div className={styles.filterGroup}>
           <h3 className="text-h3">Tickets</h3>
@@ -53,14 +78,11 @@ export default function EventClient({ event, listings, venue }) {
         </div>
       </aside>
 
-      {/* Main Content - Venue Map & Listings */}
       <div className={styles.mainContent}>
-        
         <div className={styles.venueMapWrapper}>
           <div className={styles.mapPlaceholder} style={{backgroundImage: `url(${venue.mapUrl})`}}>
             <div className="glass" style={{padding: '1rem', borderRadius: '8px', display: 'inline-block', position: 'absolute', top: '20px', left: '20px'}}>
               <h3 style={{margin: 0}}>{venue.name} Interactive Map</h3>
-              <p className="text-small" style={{margin: 0}}>Select a section to filter listings</p>
             </div>
           </div>
         </div>
@@ -68,8 +90,8 @@ export default function EventClient({ event, listings, venue }) {
         <div className={styles.listingHeader}>
           <h2>{listings.length} tickets found</h2>
           <select className={styles.sortSelect}>
-            <option>Sort by Deal Score (Best first)</option>
-            <option>Sort by Price (Lowest first)</option>
+            <option>Sort by Deal Score</option>
+            <option>Sort by Price</option>
           </select>
         </div>
 
