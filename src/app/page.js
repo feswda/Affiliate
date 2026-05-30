@@ -1,10 +1,43 @@
 import styles from './page.module.css';
 import GlobalSearch from './components/GlobalSearch';
 import TrustStrip from './components/TrustStrip';
-import { trendingEvents } from './lib/mockData';
+import { trendingEvents as fallbackEvents } from './lib/mockData';
 import Link from 'next/link';
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
 
-export default function Home() {
+export default async function Home() {
+  const payload = await getPayload({ config: configPromise });
+  let events = [];
+  
+  try {
+    const eventsResult = await payload.find({
+      collection: 'events',
+      depth: 1,
+      limit: 10,
+      where: {
+        status: {
+          equals: 'published',
+        },
+      },
+    });
+    events = eventsResult.docs;
+  } catch (err) {
+    console.error('Error fetching events from Payload:', err);
+  }
+
+  // Use fallback mock data if DB is empty
+  const displayEvents = events.length > 0 ? events.map(evt => ({
+    id: evt.id,
+    slug: evt.slug,
+    name: evt.title,
+    date: evt.startDatetime,
+    venue: typeof evt.venue === 'object' ? evt.venue.name : 'TBA',
+    city: typeof evt.venue === 'object' ? evt.venue.city : 'TBA',
+    minPrice: evt.minPrice || 0,
+    image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&q=80&w=800'
+  })) : fallbackEvents;
+
   return (
     <>
       <section className={styles.hero}>
@@ -73,7 +106,7 @@ export default function Home() {
       <section className={`container ${styles.trending}`}>
         <h2 className="text-h2">Trending Events</h2>
         <div className={styles.eventGrid}>
-          {trendingEvents.map(event => (
+          {displayEvents.map(event => (
             <Link href={`/${event.slug}`} key={event.id} className={styles.eventCard}>
               <div 
                 className={styles.eventImage} 
