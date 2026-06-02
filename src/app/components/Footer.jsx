@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContent}`}>
         <div className={styles.brand}>
-          <h2 className={styles.logo}>Helios</h2>
+          <h2 className={styles.logo}>vipticketsfinder.com</h2>
           <p className={styles.tagline}>The leading ticket search engine online.</p>
         </div>
         <div className={styles.links}>
@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
       <div className={styles.bottom}>
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Helios. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} vipticketsfinder.com. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -80,7 +80,7 @@ export default function HubTemplate({ title, subtitle, description, entitiesTitl
             <div className={styles.widget}>
               <h3 className="text-h3">Did You Know?</h3>
               <p className="text-small">
-                Helios compares tickets from over 15+ verified secondary marketplaces to find you the best deal without hidden fees.
+                vipticketsfinder.com compares tickets from over 15+ verified secondary marketplaces to find you the best deal without hidden fees.
               </p>
             </div>
           </aside>

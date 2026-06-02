@@ -12,7 +12,7 @@ export default function FootballHub() {
     <HubTemplate
       title="Football Tickets"
       subtitle="Compare prices for the biggest matches across Europe."
-      description="Football is the world's most popular sport, and securing tickets to major matches can be a challenge. Helios aggregates inventory from dozens of verified secondary marketplaces to bring you the best deals for the Premier League, Champions League, La Liga, and more."
+      description="Football is the world's most popular sport, and securing tickets to major matches can be a challenge. vipticketsfinder.com aggregates inventory from dozens of verified secondary marketplaces to bring you the best deals for the Premier League, Champions League, La Liga, and more."
       entitiesTitle="Top Leagues"
       entities={leagues}
     />

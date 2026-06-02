@@ -23,6 +23,10 @@ export async function seedDatabase() {
     collection: 'categories',
     data: { name: 'Concerts', slug: 'concerts' }
   })
+  const catSports = await payload.create({
+    collection: 'categories',
+    data: { name: 'Sports', slug: 'sports' }
+  })
 
   // Seed Venue
   const venue = await payload.create({
@@ -60,7 +64,7 @@ export async function seedDatabase() {
       data: {
         title: evt.name,
         slug: evt.slug,
-        category: evt.vertical === 'football' ? catFootball.id : catConcerts.id,
+        category: evt.vertical === 'football' ? catFootball.id : evt.vertical === 'concerts' ? catConcerts.id : catSports.id,
         venue: venue.id,
         startDatetime: evt.date,
         minPrice: evt.minPrice || 0,
@@ -77,10 +81,10 @@ export async function seedDatabase() {
   await payload.create({
     collection: 'users',
     data: {
-      email: 'admin@helios.com',
+      email: 'admin@vipticketsfinder.com',
       password: 'password123'
     }
   })
 
-  console.log('Seeding complete! User: admin@helios.com / password123')
+  console.log('Seeding complete! User: admin@vipticketsfinder.com / password123')
 }

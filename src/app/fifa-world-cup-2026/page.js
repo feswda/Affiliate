@@ -107,7 +107,7 @@ export default function TournamentHub() {
             <h3 className="text-h3" style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>How to Buy Tickets</h3>
             <p>
               Tickets will be incredibly difficult to secure via the primary official ballot. Secondary marketplaces provide a guaranteed 
-              alternative with buyer protection. Sign up for Helios alerts to be notified the moment tickets go on sale for any stage of the tournament.
+              alternative with buyer protection. Sign up for vipticketsfinder.com alerts to be notified the moment tickets go on sale for any stage of the tournament.
             </p>
           </section>
         </div>

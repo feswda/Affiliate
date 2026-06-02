@@ -7,7 +7,7 @@ export default function Navbar() {
     <header className={styles.header}>
       <div className={`container ${styles.navContainer}`}>
         <Link href="/" className={styles.logo}>
-          Helios
+          vipticketsfinder.com
         </Link>
         <div className={styles.searchWrapper}>
           <GlobalSearch />

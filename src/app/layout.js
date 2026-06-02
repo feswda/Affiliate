@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
 export const metadata = {
-  title: "Helios | The leading ticket search engine online",
+  title: "vipticketsfinder.com | The leading ticket search engine online",
   description: "Compare ticket prices for live events, concerts, football, and more.",
 };
 

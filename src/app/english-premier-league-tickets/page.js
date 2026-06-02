@@ -13,7 +13,7 @@ export default function LeagueHub() {
     <HubTemplate
       title="English Premier League Tickets"
       subtitle="The most-watched sports league in the world."
-      description="The English Premier League (EPL) features 20 clubs competing in 380 matches from August to May. Finding tickets for big six clashes is highly competitive, but Helios guarantees you access to 100% verified tickets."
+      description="The English Premier League (EPL) features 20 clubs competing in 380 matches from August to May. Finding tickets for big six clashes is highly competitive, but vipticketsfinder.com guarantees you access to 100% verified tickets."
       entitiesTitle="Featured Teams"
       entities={teams}
     />

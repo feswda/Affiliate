@@ -63,6 +63,42 @@ export const trendingEvents = [
     faqs: [
       { q: "What time do doors open?", a: "Doors typically open at 16:30 for VIP and 17:00 for general admission." }
     ]
+  },
+  {
+    id: "evt_3",
+    name: "Asian Games 2026 Opening Ceremony",
+    date: "2026-09-19T19:00:00Z",
+    venue: "Aichi-Nagoya Stadium",
+    city: "Nagoya, Japan",
+    minPrice: 200,
+    currency: "USD",
+    vertical: "multi-sport",
+    slug: "asian-games-2026-opening-ceremony-tickets",
+    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800",
+    event_status: "Scheduled",
+    tba_status: false,
+    editorial: "The 2026 Asian Games, also known as XX Asiad, will be a multi-sport event celebrated in Aichi Prefecture and its capital Nagoya in Japan.",
+    faqs: [
+      { q: "Where will the Asian Games be held?", a: "In Aichi and Nagoya, Japan." }
+    ]
+  },
+  {
+    id: "evt_4",
+    name: "Heavyweight Championship: Fury vs Usyk II",
+    date: "2026-12-21T22:00:00Z",
+    venue: "Kingdom Arena",
+    city: "Riyadh, Saudi Arabia",
+    minPrice: 500,
+    currency: "USD",
+    vertical: "boxing",
+    slug: "fury-vs-usyk-riyadh-tickets",
+    image: "https://images.unsplash.com/photo-1509563268479-0f004cf3f58b?auto=format&fit=crop&q=80&w=800",
+    event_status: "OnSale",
+    tba_status: false,
+    editorial: "The highly anticipated heavyweight boxing rematch taking place in Riyadh Season. Witness history in the Middle East as two titans clash for the unified championship.",
+    faqs: [
+      { q: "Where is the fight taking place?", a: "At the Kingdom Arena in Riyadh, Saudi Arabia." }
+    ]
   }
 ];
 
